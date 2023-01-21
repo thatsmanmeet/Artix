@@ -25,6 +25,10 @@ Artix is a simple web scrapper GUI built using tkinter and uses python to load t
 
 I have also created an CLI version of this which doesn't have any GUI. You can find that by [clicking here](https://github.com/thatsmanmeet/Python-Codes/blob/main/programs/articlescraper.py).
 
+## Screenshot
+
+<img src="./screenshot/screenshot.png" height="300px" width="350px"/>
+
 ## Disclaimer
 
 Web Scraping may or may not be **illegal** based on the copyright laws and hence it is advised to used this tool wisely. This tool is solely made for educational purposes and the developer takes no responsibility on how you use it.
