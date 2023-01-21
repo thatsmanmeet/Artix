@@ -11,6 +11,7 @@ def getArticleData():
     url = link.get()
     new_url = "https://"+url.replace("https://","").replace("http://","")
     soup = BeautifulSoup(getHtmlFile(new_url),'html.parser')
+    articleText.configure(state="normal")
     articleText.delete("0.0","end")
     for headers in soup.find_all(['h1','h2','h3','h4']):
         articleText.insert("end",text=f"\n# {headers.get_text()} \n\n")
@@ -27,7 +28,7 @@ def getArticleData():
                 while(count < len(nested_lists)):
                   articleText.insert("end",text=f"{count+1}. {nested_lists[count].get_text()}\n")
                   count+=1
-
+    articleText.configure(state="disabled")
 
 
 # setting up the system
@@ -35,28 +36,32 @@ customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 
 # Create tkinter screen
-
 app = customtkinter.CTk()
-app.geometry("720x480")
-app.title("Artix")
+app.geometry("700x500")
 app.iconbitmap("📄")
+app.title("Artix")
 
+
+# Creating a frame
+frame = customtkinter.CTkFrame(app,height=35,width=750)
+frame.grid_rowconfigure(0,weight=1)
+frame.grid_columnconfigure(0, weight=1)
+frame.pack(padx=2,pady=2)
 
 # Take an entry
 url_link = tkinter.StringVar()
-link = customtkinter.CTkEntry(master=app,width=700,height=30,textvariable=url_link,placeholder_text="Enter a URL")
-link.pack(padx=5,pady=5,fill="both")
+link = customtkinter.CTkEntry(master=frame,width=600,height=25,textvariable=url_link,placeholder_text="Enter an article's url to load")
+link.grid(row=0,column=0,padx=10,pady=5,sticky="")
 
 #Button
-
-go_button = customtkinter.CTkButton(master=app,text="GO",command=getArticleData,width=200)
-go_button.pack(padx=5,pady=5)
+go_button = customtkinter.CTkButton(master=frame,text="GO",command=getArticleData)
+go_button.grid(row=0,column=1,padx=5,pady=5,sticky="")
 
 # Print Text
 articleText = customtkinter.CTkTextbox(app)
-articleText.configure(wrap="word",text_color="lightgreen")
+articleText.configure(wrap="word",text_color="lightgreen",state="normal")
 articleText.pack(fill="both",padx=15,pady=10,expand=True)
+articleText.insert("0.0","Enter an article link in the above bar and press on go button to load the article. This does't work as a search!")
 
 # run the app
-
 app.mainloop()
