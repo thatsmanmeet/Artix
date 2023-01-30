@@ -41,7 +41,8 @@ customtkinter.set_default_color_theme("green")
 # Create tkinter screen
 app = customtkinter.CTk()
 app.geometry("700x500")
-app.iconbitmap("📄")
+# Bitmap is currently disabled as it causes errors on some platforms
+# app.iconbitmap("📄")
 app.title("Artix")
 
 

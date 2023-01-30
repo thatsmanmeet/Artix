@@ -17,7 +17,7 @@ Artix is a simple web scrapper GUI built using tkinter and uses python to load t
 
 ## How to use it ?
 
-1. Install Requests, BeautifulSoup, TKinter and customtkinter on your device by running command `pip install requests bsf tkinter customtkinter` or `python3 -m pip install requests bsf tkinter customtkinter`. You must have python installed. If not visit [Python.org's website](https://python.org).
+1. Install Requests, BeautifulSoup, TKinter and customtkinter on your device by running command `pip install requests bs4 tkinter customtkinter` or `python3 -m pip install requests bs4 tkinter customtkinter`. You must have python installed. If not visit [Python.org's website](https://python.org).
 2. Simply open an IDE or terminal and run the file by using the command `python Artix.py` or `python3 Artix.py`.
 3. Enjoy!
 
